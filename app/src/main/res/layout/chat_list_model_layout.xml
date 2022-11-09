@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.flexbox.FlexboxLayout xmlns:tools="http://schemas.android.com/tools"
+    app:flexDirection="row"
+    android:clickable="true"
+    android:paddingHorizontal="5dp"
+    android:paddingVertical="7dp"
+    android:background="@color/TabBGColor"
+    android:id="@+id/HomePageUserChatBox"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="13dp"
+    app:justifyContent="space_between"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusable="true">
+
+
+    <androidx.cardview.widget.CardView
+        app:layout_alignSelf="center"
+        app:cardCornerRadius="40dp"
+        app:flow_horizontalAlign="center"
+        android:layout_width="55sp"
+        android:layout_height="55sp"
+        android:id="@+id/UserPhotoCardView">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:src="@drawable/usericon"
+            android:scaleType="centerCrop"
+            android:id="@+id/UserPhotoImageView">
+
+        </ImageView>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <ImageView
+
+        app:layout_flexGrow="0.7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SpacerImageView">
+
+    </ImageView>
+
+
+
+    <LinearLayout
+        app:layout_alignSelf="center"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/UserNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Janet Fowler"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/LastMessageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="Sounds Good"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText">
+
+        </TextView>
+    </LinearLayout>
+    <ImageView
+
+        app:layout_flexGrow="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SpacerImageView2">
+
+    </ImageView>
+
+    <TextView
+        app:layout_alignSelf="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="16:00"
+        android:id="@+id/LastMessageTimeTextView"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/white"
+        tools:ignore="HardcodedText" />
+
+
+
+
+
+
+</com.google.android.flexbox.FlexboxLayout>
