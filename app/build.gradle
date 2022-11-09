@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id("androidx.navigation.safeargs")
 
 }
 
@@ -34,13 +35,11 @@ android {
     viewBinding{
         enabled = true
     }
+
     sourceSets {
-        main {
-            kotlin {
-                srcDirs += 'build/generated/source/navigation-args'
-            }
+            getByName("main").java.srcDirs("build/generated/source/navigation-args")
         }
-    }
+
 
 }
 
