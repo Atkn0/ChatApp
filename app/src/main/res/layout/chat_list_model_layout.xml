@@ -48,6 +48,7 @@
 
 
     <LinearLayout
+
         app:layout_alignSelf="center"
         android:orientation="vertical"
         android:layout_width="wrap_content"
