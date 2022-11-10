@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/KotlinNewChatApp/app/src/main/res/drawable/rounded_edit_text.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/KotlinNewChatApp/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/AndroidStudioProjects/KotlinNewChatApp/app/src/main/res/layout/chat_list_model_layout.xml" value="0.264" />
-        <entry key="..\:/AndroidStudioProjects/KotlinNewChatApp/app/src/main/res/layout/fragment_chat.xml" value="0.14628623188405798" />
+        <entry key="..\:/AndroidStudioProjects/KotlinNewChatApp/app/src/main/res/layout/fragment_chat.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/KotlinNewChatApp/app/src/main/res/layout/fragment_home.xml" value="0.14628623188405798" />
       </map>
     </option>

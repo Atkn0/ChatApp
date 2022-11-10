@@ -9,5 +9,5 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="TabBGColor">#1F1F1F</color>
-
+    <color name="MessageBoxColor">#2B2B2B</color>
 </resources>

@@ -19,6 +19,8 @@ class HomePageRVadapter : RecyclerView.Adapter<HomePageRVadapter.myClassHolder>(
 
     override fun onBindViewHolder(holder: myClassHolder, position: Int) {
         holder.binding.HomePageUserChatBox
+
+
     }
 
     override fun getItemCount(): Int {
