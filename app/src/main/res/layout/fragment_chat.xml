@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.flexbox.FlexboxLayout
+    app:flexDirection="column"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.ChatFragment">
+    tools:context=".Views.ChatFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/TextInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/TextInputEditText"
+            tools:ignore="HardcodedText">
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+</com.google.android.flexbox.FlexboxLayout>
