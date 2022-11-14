@@ -10,4 +10,11 @@
 
     <color name="TabBGColor">#1F1F1F</color>
     <color name="MessageBoxColor">#2B2B2B</color>
+
+
+    <color name="colorControlNormal">@color/white</color>
+    <color name="colorControlActivated">@color/white</color>
+    <color name="colorControlHighlight">@color/white</color>
+
+
 </resources>
