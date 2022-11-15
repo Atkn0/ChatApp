@@ -3,9 +3,10 @@ package com.example.kotlinnewchatapp.Adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinnewchatapp.Models.UserModel
 import com.example.kotlinnewchatapp.databinding.ChatListModelLayoutBinding
 
-class HomePageRVadapter : RecyclerView.Adapter<HomePageRVadapter.myClassHolder>() {
+class HomePageRVadapter (val userList:ArrayList<UserModel>): RecyclerView.Adapter<HomePageRVadapter.myClassHolder>() {
 
 
     class myClassHolder(val binding: ChatListModelLayoutBinding):RecyclerView.ViewHolder(binding.root) {
@@ -18,12 +19,12 @@ class HomePageRVadapter : RecyclerView.Adapter<HomePageRVadapter.myClassHolder>(
     }
 
     override fun onBindViewHolder(holder: myClassHolder, position: Int) {
-        holder.binding.HomePageUserChatBox
 
+        holder.binding.UserNameTextView.text = userList[position].userName
 
     }
 
     override fun getItemCount(): Int {
-        return 13
+        return userList.size
     }
 }
