@@ -5,10 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinnewchatapp.Adapters.ChatFragmentRecyclerViewAdapter
 import com.example.kotlinnewchatapp.R
+import com.example.kotlinnewchatapp.databinding.FragmentChatBinding
 
 
 class ChatFragment : Fragment() {
+
+    lateinit var binding: FragmentChatBinding
+    lateinit var adapter: ChatFragmentRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +26,16 @@ class ChatFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat, container, false)
+
+        binding = FragmentChatBinding.inflate(inflater)
+        val view = binding.root
+
+        adapter = ChatFragmentRecyclerViewAdapter()
+        binding.RecyclerView.adapter = adapter
+        binding.RecyclerView.layoutManager = LinearLayoutManager(context)
+
+
+        return view
     }
 
 

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/chatBoxLayout"
+    android:clickable="false"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:paddingHorizontal="5dp"
+    android:layout_height="wrap_content">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_height="wrap_content"
+        app:boxStrokeWidth="0dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        android:clickable="false"
+        app:boxCornerRadiusBottomEnd="15dp"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/myCons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditText2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:background="@drawable/chat_box_shape"
+                android:clickable="false"
+                android:paddingTop="10dp"
+                android:paddingBottom="20dp"
+                android:paddingEnd="80dp"
+                app:layout_constraintBottom_toBottomOf="@id/myCons"
+                android:autoSizeTextType="uniform"
+                android:textColor="@color/white"
+                android:text="hello worl, blablabla"
+                tools:ignore="HardcodedText,MissingConstraints"
+                tools:layout_editor_absoluteX="3dp"
+                tools:layout_editor_absoluteY="3dp"
+                tools:targetApi="o">
+
+            </com.google.android.material.textfield.TextInputEditText>
+
+            <EditText
+                android:id="@+id/chatBoxTimeText"
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:clickable="false"
+                android:layout_height="wrap_content"
+                android:text="18:04"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingBottom="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/textInputEditText2"
+                tools:ignore="HardcodedText">
+
+            </EditText>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
