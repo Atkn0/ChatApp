@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.flexbox.FlexboxLayout
-    app:flexDirection="column"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,29 +9,88 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/MessageLinearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:background="@color/white"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/MessageLinearLayout"
+        android:paddingVertical="2dp"
+        android:background="@color/black"
+
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/TextInputLayout">
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_margin="10dp"
-            android:background="@drawable/rounded_edit_text"
-            android:layout_width="match_parent"
+
+        <androidx.cardview.widget.CardView
+
+            android:id="@+id/SendButtonCardView"
+            android:layout_width="58dp"
             android:layout_height="match_parent"
-            android:id="@+id/TextInputEditText"
-            tools:ignore="HardcodedText">
+            android:layout_marginVertical="5dp"
+            android:layout_marginEnd="20dp"
+            app:cardBackgroundColor="@color/MessageBoxColor"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        </com.google.android.material.textfield.TextInputEditText>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/SendButtonImageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
 
-    </com.google.android.material.textfield.TextInputLayout>
+                android:padding="6dp"
+                app:srcCompat="@drawable/ic_baseline_send_24" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            app:cardCornerRadius="25dp"
+            android:id="@+id/MessageEditTextCardView"
+            app:cardBackgroundColor="@color/MessageBoxColor"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/SendButtonCardView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <EditText
+
+                android:hint="Type your message"
+                android:textColor="@color/white"
+                android:textColorHint="@color/HintColor"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="20dp"
+                android:textSize="17sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                tools:ignore="HardcodedText">
+
+            </EditText>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-</com.google.android.flexbox.FlexboxLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

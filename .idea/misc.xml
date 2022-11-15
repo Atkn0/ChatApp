@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/KotlinNewChatApp/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/KotlinNewChatApp/app/src/main/res/drawable/rounded_edit_text.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/KotlinNewChatApp/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/AndroidStudioProjects/KotlinNewChatApp/app/src/main/res/layout/chat_list_model_layout.xml" value="0.264" />
