@@ -5,8 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinnewchatapp.Models.UserModel
 import com.example.kotlinnewchatapp.databinding.ChatListModelLayoutBinding
+import com.google.firebase.firestore.auth.User
 
 class HomePageRVadapter (val userList:ArrayList<UserModel>): RecyclerView.Adapter<HomePageRVadapter.myClassHolder>() {
+
+
+    lateinit var currentUser:UserModel
+
+    var itemOnClick: ((UserModel) -> Unit)? = null
+
 
 
     class myClassHolder(val binding: ChatListModelLayoutBinding):RecyclerView.ViewHolder(binding.root) {
@@ -20,11 +27,37 @@ class HomePageRVadapter (val userList:ArrayList<UserModel>): RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: myClassHolder, position: Int) {
 
-        holder.binding.UserNameTextView.text = userList[position].userName
+        currentUser = userList[position]
+
+        holder.binding.UserNameTextView.text = currentUser?.userName
+
+        holder.itemView.setOnClickListener {
+            val secondCurrent = userList[position]
+            itemOnClick?.invoke(secondCurrent)
+        }
+
 
     }
 
     override fun getItemCount(): Int {
         return userList.size
     }
+
+
+
+
+    fun updateAdapter(newData: ArrayList<UserModel>){
+
+        userList.clear()
+
+        userList.addAll(newData)
+
+        notifyDataSetChanged()
+
+    }
+
+
+
 }
+
+
