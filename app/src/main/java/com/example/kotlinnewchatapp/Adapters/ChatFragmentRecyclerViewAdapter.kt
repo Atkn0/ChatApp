@@ -3,9 +3,12 @@ package com.example.kotlinnewchatapp.Adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinnewchatapp.Models.MessageModel
 import com.example.kotlinnewchatapp.databinding.MessageChatLayoutBinding
 
-class ChatFragmentRecyclerViewAdapter : RecyclerView.Adapter<ChatFragmentRecyclerViewAdapter.myHolder>() {
+class ChatFragmentRecyclerViewAdapter(messageList:ArrayList<MessageModel>) : RecyclerView.Adapter<ChatFragmentRecyclerViewAdapter.myHolder>() {
+
+
     class myHolder(val binding:MessageChatLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
 
     }

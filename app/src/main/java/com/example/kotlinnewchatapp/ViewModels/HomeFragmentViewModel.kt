@@ -2,9 +2,7 @@ package com.example.kotlinnewchatapp.ViewModels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.kotlinnewchatapp.Models.UserModel
-import com.example.kotlinnewchatapp.Repos.FirebaseFirestoreRepo
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope

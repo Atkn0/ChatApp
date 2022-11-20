@@ -9,7 +9,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecyclerView"
+        android:id="@+id/chatFragmentRecyclerView"
         android:paddingTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -72,7 +72,7 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <EditText
-
+                android:id="@+id/MessageEditText"
                 android:hint="Type your message"
                 android:textColor="@color/white"
                 android:textColorHint="@color/HintColor"

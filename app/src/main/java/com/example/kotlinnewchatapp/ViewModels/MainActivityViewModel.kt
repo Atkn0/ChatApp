@@ -7,6 +7,8 @@ class MainActivityViewModel : ViewModel() {
 
     var toolBarTitleListener = MutableLiveData<String>()
 
+
+
     fun changeTitle (title:String){
 
         toolBarTitleListener.value = title
