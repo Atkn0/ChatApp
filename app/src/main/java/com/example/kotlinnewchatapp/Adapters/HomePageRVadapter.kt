@@ -3,9 +3,17 @@ package com.example.kotlinnewchatapp.Adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinnewchatapp.Models.UserModel
 import com.example.kotlinnewchatapp.databinding.ChatListModelLayoutBinding
+import com.google.firebase.firestore.auth.User
 
-class HomePageRVadapter : RecyclerView.Adapter<HomePageRVadapter.myClassHolder>() {
+class HomePageRVadapter (val userList:ArrayList<UserModel>): RecyclerView.Adapter<HomePageRVadapter.myClassHolder>() {
+
+
+    lateinit var currentUser:UserModel
+
+    var itemOnClick: ((UserModel) -> Unit)? = null
+
 
 
     class myClassHolder(val binding: ChatListModelLayoutBinding):RecyclerView.ViewHolder(binding.root) {
@@ -18,12 +26,38 @@ class HomePageRVadapter : RecyclerView.Adapter<HomePageRVadapter.myClassHolder>(
     }
 
     override fun onBindViewHolder(holder: myClassHolder, position: Int) {
-        holder.binding.HomePageUserChatBox
+
+        currentUser = userList[position]
+
+        holder.binding.UserNameTextView.text = currentUser?.userName
+
+        holder.itemView.setOnClickListener {
+            val secondCurrent = userList[position]
+            itemOnClick?.invoke(secondCurrent)
+        }
 
 
     }
 
     override fun getItemCount(): Int {
-        return 13
+        return userList.size
     }
+
+
+
+
+    fun updateAdapter(newData: ArrayList<UserModel>){
+
+        userList.clear()
+
+        userList.addAll(newData)
+
+        notifyDataSetChanged()
+
+    }
+
+
+
 }
+
+
