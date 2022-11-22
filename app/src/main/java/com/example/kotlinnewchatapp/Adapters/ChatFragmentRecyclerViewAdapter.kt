@@ -8,6 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinnewchatapp.Models.MessageModel
 import com.example.kotlinnewchatapp.databinding.MessageChatLayoutBinding
+import com.google.firebase.Timestamp
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ChatFragmentRecyclerViewAdapter(val messageList:ArrayList<MessageModel>) : RecyclerView.Adapter<ChatFragmentRecyclerViewAdapter.myHolder>() {
 
@@ -21,8 +25,15 @@ class ChatFragmentRecyclerViewAdapter(val messageList:ArrayList<MessageModel>) :
         return  myHolder(binding)
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onBindViewHolder(holder: myHolder, position: Int) {
         holder.binding.textInputEditText2.setText(messageList[position].messageText)
+        val timeTextString = messageList[position].sendTime
+
+
+
+
+
     }
 
     override fun getItemCount(): Int {
