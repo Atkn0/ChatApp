@@ -1,6 +1,9 @@
 package com.example.kotlinnewchatapp.ViewModels
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.text.Editable
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.kotlinnewchatapp.Adapters.ChatFragmentRecyclerViewAdapter
@@ -13,6 +16,10 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class ChatFragmentViewModel : ViewModel() {
 
@@ -24,45 +31,31 @@ class ChatFragmentViewModel : ViewModel() {
 
 
 
+
     fun getAllMessages () = CoroutineScope(Dispatchers.IO).launch {
 
-        val allMessage = ref.document("user1").collection("messages").get().addOnCompleteListener {
 
-            if(it.isSuccessful){
-                for (i in it.result.documents){
+        val orderByTime = ref.document("user1").collection("messages").orderBy("time").addSnapshotListener { value, error ->
 
-                    val a = i.data
-                    if (a == null){
-                        println("a null döndü")
-                    }else{
+            receivedList.clear()
+            for (i in value!!.documents){
 
-                        val receivedSenderName:String = a.get("name").toString()
-                        val receivedText:String = a.get("text").toString()
-                        val receivedTime:String = a.get("time").toString()
+                val receivedSenderName:String = i.get("name").toString()
+                val receivedText:String = i.get("text").toString()
+                val receivedTime:String = i.get("time").toString()
 
-                        val timeStamp = Timestamp.now().seconds
-                        println(timeStamp)
+                println(receivedTime)
 
+                val messageModel = MessageModel(messageText = receivedText, senderName =  receivedSenderName, sendTime = receivedTime)
 
+                receivedList.add(messageModel)
 
-                        val messageModel = MessageModel(messageText = receivedText, senderName =  receivedSenderName, sendTime = receivedTime)
-                        println(messageModel)
-
-                        receivedList.add(messageModel)
-
-                    }
-
-
-
-                }
-
-                receivedMessageModel.postValue(receivedList)
-
-
-            }else{
-                println("başarılı dönmedi")
             }
+
+            receivedMessageModel.postValue(receivedList)
+
         }
+
 
 
     }
@@ -70,23 +63,30 @@ class ChatFragmentViewModel : ViewModel() {
 
 
 
-    fun sendMessage (currentUserModel:UserModel,messageModel:MessageModel,adapter: ChatFragmentRecyclerViewAdapter){
+    fun sendMessage (currentUserModel:UserModel,messageModel:MessageModel,adapter: ChatFragmentRecyclerViewAdapter,context: Context){
 
 
-        val haspMap = HashMap<String,Any>()
+        if (messageModel.messageText == null || messageModel.messageText == ""){
+            Toast.makeText(context, "Message box can't be empty!", Toast.LENGTH_SHORT).show()
+        }else{
+            val haspMap = HashMap<String,Any>()
 
 
-        val senderName = messageModel.senderName
-        val messageText = messageModel.messageText
-        val sendingTime = messageModel.sendTime
+            val senderName = messageModel.senderName
+            val messageText = messageModel.messageText
+            val sendingTime = messageModel.sendTime
 
-        haspMap.put("name",senderName!!)
-        haspMap.put("text",messageText!!)
-        haspMap.put("time",sendingTime!!)
+            haspMap.put("name",senderName!!)
+            haspMap.put("text",messageText)
+            haspMap.put("time",sendingTime!!)
 
-        val ref_to_messages = ref.document("user1").collection("messages").document().set(haspMap,
-            SetOptions.merge()).addOnSuccessListener {
+            val ref_to_messages = ref.document("user1").collection("messages").document().set(haspMap,
+                SetOptions.merge()).addOnSuccessListener {
+            }
+
+
         }
+
 
 
 

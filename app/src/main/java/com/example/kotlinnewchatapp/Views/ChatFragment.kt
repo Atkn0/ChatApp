@@ -74,7 +74,11 @@ class ChatFragment : Fragment() {
             val createdModel = MessageModel(messageText, senderName, sendTime)
 
 
-            chatViewModel.sendMessage(args.currentUserData,createdModel,adapter)
+            context?.let { it1 ->
+                chatViewModel.sendMessage(args.currentUserData,createdModel,adapter,
+                    it1
+                )
+            }
 
             binding.MessageEditText.text.clear()
 
