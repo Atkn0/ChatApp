@@ -49,9 +49,7 @@ class HomePageRVadapter (val userList:ArrayList<UserModel>): RecyclerView.Adapte
     fun updateAdapter(newData: ArrayList<UserModel>){
 
         userList.clear()
-
         userList.addAll(newData)
-
         notifyDataSetChanged()
 
     }
