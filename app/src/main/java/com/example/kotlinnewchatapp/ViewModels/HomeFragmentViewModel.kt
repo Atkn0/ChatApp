@@ -26,8 +26,10 @@ class HomeFragmentViewModel : ViewModel() {
             for (i in test2){
                 val name = i.data?.get("name") as String
                 val surname = i.data?.get("surname") as String
+                val imageUrl = i.data?.get("imageUrl") as String
+                val userID = i.data?.get("userId") as String
 
-                arraylistUser.add(UserModel(userName = name, userSurname = surname ))
+                arraylistUser.add(UserModel(userName = name, userSurname = surname, imageUrl = imageUrl, userId = userID))
             }
 
             arda.postValue(arraylistUser)

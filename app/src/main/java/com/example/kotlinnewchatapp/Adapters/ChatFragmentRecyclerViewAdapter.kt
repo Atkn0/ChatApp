@@ -1,15 +1,19 @@
 package com.example.kotlinnewchatapp.Adapters
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.text.Editable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinnewchatapp.Models.MessageModel
 import com.example.kotlinnewchatapp.databinding.MessageChatLayoutBinding
 import com.google.firebase.Timestamp
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -25,13 +29,12 @@ class ChatFragmentRecyclerViewAdapter(val messageList:ArrayList<MessageModel>) :
         return  myHolder(binding)
     }
 
-    @SuppressLint("SimpleDateFormat")
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: myHolder, position: Int) {
         holder.binding.textInputEditText2.setText(messageList[position].messageText)
         val timeTextString = messageList[position].sendTime
-
-
-
+        holder.binding.chatBoxTimeText.setText(timeTextString)
 
 
     }

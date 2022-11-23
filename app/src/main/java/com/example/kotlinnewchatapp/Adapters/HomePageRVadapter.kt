@@ -1,11 +1,17 @@
 package com.example.kotlinnewchatapp.Adapters
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.kotlinnewchatapp.Models.UserModel
+import com.example.kotlinnewchatapp.R
 import com.example.kotlinnewchatapp.databinding.ChatListModelLayoutBinding
 import com.google.firebase.firestore.auth.User
+import com.squareup.picasso.Picasso
+import java.net.URI
 
 class HomePageRVadapter (val userList:ArrayList<UserModel>): RecyclerView.Adapter<HomePageRVadapter.myClassHolder>() {
 
@@ -30,6 +36,12 @@ class HomePageRVadapter (val userList:ArrayList<UserModel>): RecyclerView.Adapte
         currentUser = userList[position]
 
         holder.binding.UserNameTextView.text = currentUser?.userName
+        val currenImageUrl = currentUser.imageUrl
+        Picasso.get()
+            .load(currenImageUrl)
+            .into(holder.binding.UserPhotoImageView)
+
+
 
         holder.itemView.setOnClickListener {
             val secondCurrent = userList[position]

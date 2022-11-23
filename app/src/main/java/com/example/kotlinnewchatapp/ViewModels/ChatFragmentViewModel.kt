@@ -32,10 +32,10 @@ class ChatFragmentViewModel : ViewModel() {
 
 
 
-    fun getAllMessages () = CoroutineScope(Dispatchers.IO).launch {
+    fun getAllMessages (currentUser:UserModel) = CoroutineScope(Dispatchers.IO).launch {
 
-
-        val orderByTime = ref.document("user1").collection("messages").orderBy("time").addSnapshotListener { value, error ->
+        val currentUserId = currentUser.userId
+        val orderByTime = ref.document("$currentUserId").collection("messages").orderBy("timeFB").addSnapshotListener { value, error ->
 
             receivedList.clear()
             for (i in value!!.documents){
@@ -65,6 +65,8 @@ class ChatFragmentViewModel : ViewModel() {
 
     fun sendMessage (currentUserModel:UserModel,messageModel:MessageModel,adapter: ChatFragmentRecyclerViewAdapter,context: Context){
 
+        val currentUserId = currentUserModel.userId
+
 
         if (messageModel.messageText == null || messageModel.messageText == ""){
             Toast.makeText(context, "Message box can't be empty!", Toast.LENGTH_SHORT).show()
@@ -75,21 +77,20 @@ class ChatFragmentViewModel : ViewModel() {
             val senderName = messageModel.senderName
             val messageText = messageModel.messageText
             val sendingTime = messageModel.sendTime
+            val timeForFirebase = messageModel.timeForFirebase
 
             haspMap.put("name",senderName!!)
             haspMap.put("text",messageText)
             haspMap.put("time",sendingTime!!)
+            haspMap.put("timeFB",timeForFirebase!!)
 
-            val ref_to_messages = ref.document("user1").collection("messages").document().set(haspMap,
+            val ref_to_messages = ref.document("$currentUserId").collection("messages").document().set(haspMap,
                 SetOptions.merge()).addOnSuccessListener {
             }
 
 
         }
-
-
-
-
+        
 
     }
 

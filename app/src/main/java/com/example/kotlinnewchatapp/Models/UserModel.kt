@@ -8,9 +8,10 @@ import java.net.URL
 
 @Parcelize
 data class UserModel(
-    val imageUrl: URL? = null,
+    val imageUrl: String?  = null,
     val userName:String,
     val userSurname:String,
     val lastMessageFromUser:String? = null,
     val lastMessageTime:String? = null,
+    val userId:String? = null,
 ) : Parcelable
