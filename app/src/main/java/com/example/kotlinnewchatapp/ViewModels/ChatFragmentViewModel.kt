@@ -52,6 +52,8 @@ class ChatFragmentViewModel : ViewModel() {
 
             }
 
+
+
             receivedMessageModel.postValue(receivedList)
 
         }

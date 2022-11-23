@@ -13,7 +13,7 @@ import kotlinx.coroutines.tasks.await
 class HomeFragmentViewModel : ViewModel() {
 
     val db = Firebase.firestore
-    var arda = MutableLiveData<ArrayList<UserModel>>()
+    var userModelList = MutableLiveData<ArrayList<UserModel>>()
     val arraylistUser = ArrayList<UserModel>()
 
 
@@ -21,18 +21,25 @@ class HomeFragmentViewModel : ViewModel() {
 
         try {
 
-            val test = db.collection("users").get().await()
-            val test2 = test.documents
-            for (i in test2){
+            val ref = db.collection("users").get().await()
+            val ref_list = ref.documents
+            for (i in ref_list){
                 val name = i.data?.get("name") as String
                 val surname = i.data?.get("surname") as String
                 val imageUrl = i.data?.get("imageUrl") as String
                 val userID = i.data?.get("userId") as String
+                val lastMessageText = i.data?.get("lastMessageText") as String
+                val lastMessageTime = i.data?.get("lastMessageTime") as String
 
-                arraylistUser.add(UserModel(userName = name, userSurname = surname, imageUrl = imageUrl, userId = userID))
+                arraylistUser.add(UserModel(userName = name,
+                    userSurname = surname,
+                    imageUrl = imageUrl,
+                    userId = userID,
+                    lastMessageText = lastMessageText,
+                    lastMessageTime = lastMessageTime))
             }
 
-            arda.postValue(arraylistUser)
+            userModelList.postValue(arraylistUser)
 
 
         }catch (e:Exception){

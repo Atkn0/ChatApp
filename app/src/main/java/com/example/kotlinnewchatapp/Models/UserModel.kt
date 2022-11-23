@@ -11,7 +11,7 @@ data class UserModel(
     val imageUrl: String?  = null,
     val userName:String,
     val userSurname:String,
-    val lastMessageFromUser:String? = null,
+    val lastMessageText:String? = null,
     val lastMessageTime:String? = null,
     val userId:String? = null,
 ) : Parcelable

@@ -38,6 +38,12 @@ class SplashScreenActivity: AppCompatActivity() {
 
                 }
 
+                val getLastMessageAndTime = db.collection("users").document().addSnapshotListener { value, error ->
+
+                    println(value?.data)
+
+                }
+
             }
         }
         val intent = Intent(this,MainActivity::class.java)
