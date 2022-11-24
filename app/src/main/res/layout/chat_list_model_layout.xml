@@ -50,6 +50,7 @@
 
     <LinearLayout
 
+        app:layout_maxWidth="300dp"
         app:layout_alignSelf="center"
         android:orientation="vertical"
         android:layout_width="wrap_content"
@@ -67,18 +68,7 @@
 
         </TextView>
 
-        <TextView
-            android:id="@+id/LastMessageTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:fontFamily="sans-serif-light"
-            android:text="Sounds Good"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            tools:ignore="HardcodedText">
 
-        </TextView>
     </LinearLayout>
     <ImageView
 
@@ -89,15 +79,7 @@
 
     </ImageView>
 
-    <TextView
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="16:00"
-        android:id="@+id/LastMessageTimeTextView"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/white"
-        tools:ignore="HardcodedText" />
 
 
 
