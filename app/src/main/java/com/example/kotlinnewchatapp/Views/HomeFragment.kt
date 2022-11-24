@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.arda.observe(viewLifecycleOwner, Observer {
+        viewModel.userModelList.observe(viewLifecycleOwner, Observer {
 
 
             adapter.updateAdapter(it)

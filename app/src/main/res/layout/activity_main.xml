@@ -20,7 +20,7 @@
             android:background="@color/TabBGColor"
             android:backgroundTint="@color/TabBGColor"
             android:layout_height="wrap_content"
-            app:title="1 new message"
+            app:title="chat someone"
             app:titleCentered="true"
             app:titleTextColor="#FFFFFF"
             android:id="@+id/ToolBar">

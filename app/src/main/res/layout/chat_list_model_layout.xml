@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.flexbox.FlexboxLayout xmlns:tools="http://schemas.android.com/tools"
+<com.google.android.flexbox.FlexboxLayout
+    xmlns:tools="http://schemas.android.com/tools"
     app:flexDirection="row"
     android:clickable="true"
     android:paddingHorizontal="5dp"
@@ -70,6 +71,7 @@
             android:id="@+id/LastMessageTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxLines="1"
             android:fontFamily="sans-serif-light"
             android:text="Sounds Good"
             android:textColor="@color/white"
