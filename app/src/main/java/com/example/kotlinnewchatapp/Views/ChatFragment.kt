@@ -52,7 +52,7 @@ class ChatFragment : Fragment() {
             override fun handleOnBackPressed() {
                 isEnabled = false
 
-                mainViewModel.changeTitle("1 new message")
+                mainViewModel.changeTitle("chat someone")
 
                 activity?.onBackPressed()
             }

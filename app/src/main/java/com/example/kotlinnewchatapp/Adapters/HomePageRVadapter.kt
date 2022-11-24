@@ -42,8 +42,6 @@ class HomePageRVadapter (val userList:ArrayList<UserModel>): RecyclerView.Adapte
             .load(currenImageUrl)
             .into(holder.binding.UserPhotoImageView)
 
-        holder.binding.LastMessageTextView.text = currentUser.lastMessageText
-        holder.binding.LastMessageTimeTextView.text = currentUser.lastMessageTime
 
         holder.itemView.setOnClickListener {
             val secondCurrent = userList[position]
