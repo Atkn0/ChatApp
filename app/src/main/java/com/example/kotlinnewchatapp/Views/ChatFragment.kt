@@ -88,6 +88,7 @@ class ChatFragment : Fragment() {
         chatViewModel.receivedMessageModel.observe(viewLifecycleOwner, Observer{
 
            adapter.updateAdapter(it)
+            binding.chatFragmentRecyclerView.scrollToPosition(it.size - 1)
             adapter.notifyDataSetChanged()
 
 

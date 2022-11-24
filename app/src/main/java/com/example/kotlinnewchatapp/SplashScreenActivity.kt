@@ -22,7 +22,7 @@ class SplashScreenActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
+        println("SPLASH SCREEN İÇİNDE")
 
         runBlocking {
             launch {
@@ -38,15 +38,12 @@ class SplashScreenActivity: AppCompatActivity() {
 
                 }
 
-                val getLastMessageAndTime = db.collection("users").document().addSnapshotListener { value, error ->
 
-                    println(value?.data)
-
-                }
 
             }
         }
         val intent = Intent(this,MainActivity::class.java)
+        println("SPLASH SCREEN BİTTİ")
         startActivity(intent)
         finish()
 

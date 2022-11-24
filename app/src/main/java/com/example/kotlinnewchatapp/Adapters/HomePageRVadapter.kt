@@ -28,6 +28,7 @@ class HomePageRVadapter (val userList:ArrayList<UserModel>): RecyclerView.Adapte
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): myClassHolder {
         val binding = ChatListModelLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+
         return myClassHolder(binding)
     }
 

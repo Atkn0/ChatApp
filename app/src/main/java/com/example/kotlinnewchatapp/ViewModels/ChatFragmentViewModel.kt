@@ -10,6 +10,7 @@ import com.example.kotlinnewchatapp.Adapters.ChatFragmentRecyclerViewAdapter
 import com.example.kotlinnewchatapp.Models.MessageModel
 import com.example.kotlinnewchatapp.Models.UserModel
 import com.google.firebase.Timestamp
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -35,7 +36,7 @@ class ChatFragmentViewModel : ViewModel() {
     fun getAllMessages (currentUser:UserModel) = CoroutineScope(Dispatchers.IO).launch {
 
         val currentUserId = currentUser.userId
-        val orderByTime = ref.document("$currentUserId").collection("messages").orderBy("timeFB").addSnapshotListener { value, error ->
+        val orderByTime = ref.document("$currentUserId").collection("messages").orderBy("timeFB",Query.Direction.ASCENDING).addSnapshotListener { value, error ->
 
             receivedList.clear()
             for (i in value!!.documents){

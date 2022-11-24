@@ -48,6 +48,7 @@ class ChatFragmentRecyclerViewAdapter(val messageList:ArrayList<MessageModel>) :
 
         messageList.clear()
         messageList.addAll(newData)
+
         notifyDataSetChanged()
 
 
